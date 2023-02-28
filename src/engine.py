@@ -13,6 +13,8 @@ class murx:
         # Initialize game Board
         self.board = [[0] * width for x in range(height)]
         self.nextPlayer = 'X'
+        self.won = False
+        self.winner = ''
 
 
     def playerDrop(self, row):
@@ -27,4 +29,17 @@ class murx:
             self.board[i][row] = self.nextPlayer
             self.nextPlayer = ('X' if self.nextPlayer == 'O' else 'O' )
             break
+
+    def winningCondition(self):
+        #rows
+        allSame = lambda a: True if a.count(a[0]) == len(a) else False
+
+        for i in range(self.height):
+            t = [self.board[i][x] for x in range(4)]
+            if allSame(t) and t[0] != 0:
+                return t[0]
+
+
+        return -1
+
 
