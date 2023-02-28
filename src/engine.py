@@ -21,9 +21,10 @@ class murx:
 
         i = 0
         for i in range(self.height):
-            if self.board[i][row] == 0:
+            if self.board[i][row] != 0:
                 continue
 
-            self.board[i][row] == self.nextPlayer
-            self.nextPlayer = ('X' if self.netxtPlayer == 'O' else 'O' )
+            self.board[i][row] = self.nextPlayer
+            self.nextPlayer = ('X' if self.nextPlayer == 'O' else 'O' )
+            break
 
